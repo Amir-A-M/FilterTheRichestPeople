@@ -1,0 +1,222 @@
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.logo h1 {
+  margin-bottom: 0;
+  font-size: 1.4rem;
+  color: #757575;
+}
+
+.title {
+  font-weight: bold;
+  color: #616161;
+  letter-spacing: 1px;
+}
+
+.filter .input-group.limit {
+  width: 12rem;
+}
+
+.form-control:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.select-box {
+  position: relative;
+  display: block;
+  width: 10rem;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+  text-transform: capitalize;
+  color: #60666d;
+}
+
+.select-box__current {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  border-radius: .25rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 1px solid #ced4da;
+}
+
+.select-box__current:focus {
+  border-color: #80bdff;
+}
+
+.select-box__current:focus + .select-box__list {
+  opacity: 1;
+  z-index: 99;
+  -webkit-box-shadow: 0 0 20px #546c841f;
+          box-shadow: 0 0 20px #546c841f;
+  -webkit-animation-name: none;
+          animation-name: none;
+}
+
+.select-box__current:focus + .select-box__list .select-box__option {
+  cursor: pointer;
+}
+
+.select-box__current:focus .select-box__icon {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+          transform: translateY(-50%) rotate(180deg);
+}
+
+.select-box__icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 15px;
+  opacity: 0.3;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.select-box__value {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 99;
+}
+
+.select-box__input {
+  display: none;
+}
+
+.select-box__input:checked + .select-box__input-text {
+  display: block;
+}
+
+.select-box__input-text {
+  display: none;
+  width: 100%;
+  margin: 0;
+  padding: 6px 12px;
+  background-color: #fff;
+  border-radius: .25rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.select-box__list {
+  position: absolute;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  z-index: 99;
+  -webkit-animation-name: HideList;
+          animation-name: HideList;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: step-start;
+          animation-timing-function: step-start;
+}
+
+.select-box__option {
+  display: block;
+  padding: 15px;
+  margin: 0;
+  background-color: #fff;
+}
+
+.select-box__option:hover, .select-box__option:focus {
+  color: #546c84;
+  background-color: #F5F5F5;
+}
+
+@-webkit-keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+
+@keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+
+@media (max-width: 425px) {
+  .filter {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .filter .input-group {
+    margin-right: auto !important;
+    margin-bottom: .3rem;
+  }
+}
+
+.profiles .card {
+  -webkit-box-shadow: 0 0 10px #92a7b145;
+          box-shadow: 0 0 10px #92a7b145;
+}
+
+.profiles .card-header {
+  overflow: hidden;
+}
+
+.profiles .card-header img {
+  min-width: 7rem;
+  max-height: 18rem;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.profiles .card-header img.placeholder {
+  padding: 2rem;
+  -o-object-fit: unset;
+     object-fit: unset;
+}
+
+.profiles .info {
+  margin-top: auto;
+}
+
+.profiles .badge {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+#loader {
+  width: 3rem;
+  display: block;
+  margin-top: 1rem;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+/*# sourceMappingURL=style.css.map */

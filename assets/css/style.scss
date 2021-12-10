@@ -1,0 +1,212 @@
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+// ** header **
+.logo h1 {
+  margin-bottom: 0;
+  font-size: 1.4rem;
+  color: #757575;
+}
+
+
+// ** search form ** filter
+.title {
+  font-weight: bold;
+  color: #616161;
+  letter-spacing: 1px;
+}
+
+.filter .input-group.limit {
+  width: 12rem;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.select-box {
+  position: relative;
+  display: block;
+  width: 10rem;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+  text-transform: capitalize;
+  color: #60666d;
+
+  &__current {
+    position: relative;
+    cursor: pointer;
+    outline: none;
+
+    border-radius: .25rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 1px solid #ced4da;
+
+    &:focus {
+      border-color: #80bdff;
+
+      &+.select-box__list {
+        opacity: 1;
+        z-index: 99;
+        box-shadow: 0 0 20px #546c841f;
+
+        // We have to set "animation-name: none;" to make the list visible (read below how it works)
+
+        animation-name: none;
+
+        .select-box__option {
+          cursor: pointer;
+        }
+      }
+
+      .select-box__icon {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 15px;
+    opacity: 0.3;
+    transition: 0.2s ease;
+  }
+
+  &__value {
+    display: flex;
+    z-index: 99;
+
+  }
+
+  &__input {
+    display: none;
+
+    &:checked+.select-box__input-text {
+      display: block;
+    }
+  }
+
+  &__input-text {
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 6px 12px;
+    background-color: #fff;
+
+    border-radius: .25rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &__list {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    z-index: 99;
+
+
+    // We need to use animation with delay.
+    // Otherwise the click event will not have time to run on label, because this element disapears immediately when .select-box__current element loses the focus.
+    // This delay will not be noticed because we set "opacity" to "0".
+    // We also use "animation-fill-mode: forwards" to make the list stay hidden.
+
+    animation-name: HideList;
+    animation-duration: 0.5s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: step-start;
+  }
+
+  &__option {
+    display: block;
+    padding: 15px;
+    margin: 0;
+    background-color: #fff;
+
+    &:hover,
+    &:focus {
+      color: #546c84;
+      background-color: #F5F5F5;
+    }
+  }
+}
+
+@keyframes HideList {
+  from {
+    transform: scaleY(1);
+  }
+
+  to {
+    transform: scaleY(0);
+  }
+}
+
+@media (max-width: 425px) {
+  .filter {
+    flex-direction: column;
+
+    .input-group {
+      margin-right: auto !important;
+      margin-bottom: .3rem;
+    }
+  }
+}
+
+// ** profile card **
+.profiles {
+  .card {
+    box-shadow: 0 0 10px #92a7b145;
+  }
+
+  .card-header {
+
+    overflow: hidden;
+
+    img {
+      min-width: 7rem;
+      max-height: 18rem;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+
+      &.placeholder {
+        padding: 2rem;
+        object-fit: unset;
+      }
+    }
+  }
+
+  .info {
+    margin-top: auto;
+  }
+
+  .badge {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 5px;
+    margin-right: 5px;
+  }
+}
+
+// ** loader **
+  #loader {
+    width: 3rem;
+    display: block;
+    margin-top: 1rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
